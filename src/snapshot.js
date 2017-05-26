@@ -32,7 +32,7 @@ export default (protocol, host, path, delay) => {
       },
       done: (err, window) => {
         if (!reactSnapshotRenderCalled) {
-          reject("'render' from react-snapshot was never called. Did you replace the call to ReactDOM.render()?")
+          reject(`Skipping resource ${path} without render() call. You may want to add it to the excluded files if it is not a react-driven page (see https://github.com/geelen/react-snapshot#options).`)
         }
       }
     })
